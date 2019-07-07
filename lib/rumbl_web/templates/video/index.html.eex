@@ -3,25 +3,19 @@
 <table class="table">
   <thead>
     <tr>
-      <th> url</th>
       <th>Title</th>
-      <th>Description</th>
-
+      <th></th>
+      <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
 <%= for video <- @videos do %>
     <tr>
-      <td><%= video. url %></td>
       <td><%= video.title %></td>
-      <td><%= video.description %></td>
-
-      <td class="text-right">
-        <span><%= link "Show", to: video_path(@conn, :show, video), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: video_path(@conn, :edit, video), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: video_path(@conn, :delete, video), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
-      </td>
+      <td><%= link "Edit", to: video_path(@conn, :edit, video), class: "btn btn-default btn-xs" %></td>
+      <td><%= link "Delete", to: video_path(@conn, :delete, video), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></td>
+      <td><%= link "Watch", to: watch_path(@conn, :show, video), class: "btn btn-default btn-xs" %></td>
     </tr>
 <% end %>
   </tbody>
